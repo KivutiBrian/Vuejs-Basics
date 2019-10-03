@@ -10,6 +10,19 @@
     
     <div id="app">
         <p>{{ greeting }}</p>
+
+        <p>is it true: {{ isItTrue ? 'Yes it is' : 'No' }}</p>
+
+        <p>{{ array[0] }}</p>
+
+        <p>{{ obj.car }}</p>
+
+        <p>{{ func() }}</p>
+
+        <!-- calling a function from the methods property -->
+        <p>{{ welcome() }}</p> 
+
+        <p>About me: {{ getStatement() }}</p> 
     </div>
 
     
@@ -21,9 +34,34 @@
         new Vue({
             el: '#app', //el property takes a string
             data:{      // data property takes an object as a value (used as a store )
-                greeting:'Hello guys'
+                greeting:'Hello guys',
 
-            }
+                statement: 'My name is Gaideh and I am a web developer',
+
+                isItTrue: true,                     //using a boolean
+                
+                array: ['Brian', 'Jane', 'Mike'],   // use of an array
+
+                obj:{                               // use of object
+                    car:'Ferrari'
+                },
+
+                func: ()=>{                         //use of a function
+                    return 'You just called a function'
+                }
+            },
+
+            methods: {                              //declare any functions
+                welcome(){
+                    return 'Welcome to Vue JS framework'
+                },
+
+                //accessing a data property inside the methods property
+                getStatement(){
+                    return this.statement 
+                    //use of this keyword means that we are referencing something inside the Vue instance
+                }
+            },
         })
     </script>
 </body>
