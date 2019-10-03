@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loops</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <!-- using v-for directive -->
+        <p v-for="name in names">{{ name }}</p>
+
+        <!-- getting the index -->
+        <p v-for="(car,index) in cars">index {{ index }}: {{ car }}</p>
+
+        <hr>
+
+        <!-- loop over an object -->
+        <!-- <h3 v-for="laptop in laptops">{{ laptop.id }}. {{ laptop.brand }} color: {{ laptop.color }}</h3> -->
+
+        <!-- alternative -->
+        <p v-for="( value,key,index ) in user">{{ index }}.{{ key }}:{{ value }}</p>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                user:{
+                    first_name:'Brian',
+                    last_name:'Kivuti',
+                    age: 28
+
+                },
+                names: ['Brian', 'Ken', 'Martin'],
+                cars:['Toyota', 'Subaru', 'Mitsubishi'],
+                laptops: [
+                    {
+                        id: 1,
+                        brand: 'Dell',
+                        color: 'black'
+                    },
+                    {   
+                        id: 2,
+                        brand: 'HP',
+                        color: 'grey'
+                    },
+                    {   
+                        id: 3,
+                        brand: 'Lenovo',
+                        color: 'Blue'
+                    }
+
+
+                ]
+
+            }
+        })
+    </script>
+</body>
+</html>
