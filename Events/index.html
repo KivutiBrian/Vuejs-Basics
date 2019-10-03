@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+
+    <style>
+        .box{
+            background: teal;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <h3>Name: {{ myName }}</h3>
+
+        <!-- single click -->
+        <button v-on:click="changeName">Click me</button>
+        
+        <h4>Count: {{ count }}</h4>
+
+        <!-- double click -->
+        <button v-on:dblclick="doubleClick">Double click here</button>
+
+        <hr>
+
+        <div class="box" @mousemove="getCoord">
+
+        </div>
+
+        <p>X : {{ x }}</p>
+        <p>Y : {{ y }}</p>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                myName: 'Gaideh',
+                count: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                changeName(){
+                   return this.myName = 'Kivuti' 
+                },
+
+                doubleClick(){
+                    return this.count +=2
+                },
+
+                getCoord(event){
+                    this.x = event.clientX
+                    this.y = event.clientY
+                }
+            },
+        })
+    </script>
+</body>
+</html>
