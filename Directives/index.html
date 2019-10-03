@@ -10,6 +10,24 @@
     
     <div id="app">
 
+        <!-- displaying an image -->
+        <img v-bind:src="src" v-bind:alt="alt">
+
+        <br>
+
+        <!-- links -->
+        <a v-bind:href="techcamp">Visit techcamp</a>
+
+        <hr>
+
+        <!-- v-text directive -->
+        <p v-text="mytext"></p>
+
+        <hr>
+
+        <!-- use of v-html directive -->
+        <div v-html="myHtml"></div>
+
     </div>
 
     <!-- development version, includes helpful console warnings -->
@@ -17,7 +35,14 @@
 
     <script>
         new Vue({
-            el: '#app'
+            el: '#app',
+            data: {
+                src: "https://picsum.photos/id/237/200/300",
+                alt: "another image",
+                techcamp: 'https://techcamp.co.ke',
+                mytext: 'Hello guys, welcome to my youtube channel',
+                myHtml: '<strong>Use of the v-html directive</strong>'
+            }
         })
     </script>
 </body>
