@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link href="https://fonts.googleapis.com/css?family=Anton|Roboto:300,400,500" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+   <script src="js/vue.js"></script>
+   <title>Who pays the bill</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="state" id="names" class="container">`
+
+         	<h1>Who pays the bills</h1>
+			<div class="input_container">
+				<input @keyup.enter="addNameToList" v-model="inputName" type="text" >
+				<button @click="addNameToList">Add</button>
+			</div>
+
+			<!-- error container -->
+			<div class="error_label" v-if="showError">
+				input cannot be empty
+			</div>
+
+			<!-- list of names -->
+			<div class="list_of_names">
+				<div v-for="(name, index) in names" :key="index" @click="removeItem(index)">{{ name }}</div>
+			</div>
+
+			<!-- looser btn -->
+			<div v-if="names.length > 1">
+				<div @click="showResults" class="action_button">
+					Choose the looser
+				</div>
+			</div>
+
+        </div>
+
+        <div v-if="!state" id="result" class="container">
+            <div class="result_container">
+               <h1>The looser is: {{ result }}</h1>
+			</div>
+			
+			<div @click="resetApp" class="action_button">
+				Reset app
+			</div>
+        </div>
+    </div>
+ </body>
+ 
+ <script src="js/main.js"></script>
+</html>
